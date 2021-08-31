@@ -1,0 +1,22 @@
+﻿Public Class frmBeneficiaryInformation
+    Dim ID As Integer
+    Private Sub frmBeneficiaryInformation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dbConnection()
+
+        '*-->DISPLAY BENEFICIARY INFORMATION TO frmBeneficiaryInformation
+        ID = frmDashboard.BEN_EFAS_ID
+        '*PERSONAL INFO
+        TXT_BEN_GENDER.Text = _get_value("SELECT GENDER FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "GENDER")
+        TXT_BEN_MARITAL_STATUS.Text = _get_value("SELECT MARITAL_STATUS FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "MARITAL_STATUS")
+        TXT_BEN_EMAIL.Text = _get_value("SELECT EMAIL FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "EMAIL")
+        '*EMERGENCY CONTACT INFO
+        TXT_BEN_EC_FNAME.Text = _get_value("SELECT EC_FIRST_NAME FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "EC_FIRST_NAME")
+        TXT_BEN_EC_LNAME.Text = _get_value("SELECT EC_LAST_NAME FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "EC_LAST_NAME")
+        TXT_BEN_EC_CONT_NUM.Text = _get_value("SELECT EC_CONTACT_NUMBER FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "EC_CONTACT_NUMBER")
+        TXT_BEN_EC_RELATION.Text = _get_value("SELECT EC_RELATIONSHIP FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "EC_RELATIONSHIP")
+        '*SCHOOL INFO
+        TXT_BEN_SCHOOL_ID.Text = _get_value("SELECT SCHOOL_ID FROM EFAS_BENEFICIARY WHERE EFAS_BENEFICIARY_ID = " & ID & ";", "SCHOOL_ID")
+        'END<--*
+    End Sub
+
+End Class
